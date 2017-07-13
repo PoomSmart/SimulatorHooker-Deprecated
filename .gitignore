@@ -1,0 +1,15 @@
+.theos
+*.o
+SBShortcutMenuSimulator
+FLEXDylib
+Simulator
+kill
+*/*.dylib
+*/*.o
+PreferenceOrganizer2
+FullSafari
+PreferenceLoader
+InternalPhotos
+Test/*
+DarkMode
+lib/*

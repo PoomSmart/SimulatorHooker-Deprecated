@@ -1,0 +1,7 @@
+#!/bin/sh
+
+MYSDKROOT="/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 9.3.simruntime/Contents/Resources/RuntimeRoot"
+MYLD="${MYSDKROOT}/System/Library/LaunchDaemons"
+SB="${MYLD}/com.apple.SpringBoard.plist"
+
+sudo plutil -replace EnvironmentVariables -xml "<dict><key>DYLD_INSERT_LIBRARIES</key><string>/opt/simject/simject.dylib</string></dict>" "${SB}"

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SH_ROOT=/Users/PoomSmart/Desktop/CydiaTweaks/SimulatorHooker
+SH_INJECT_PATH=.theos/obj/iphone_simulator
+SH_DYLIBS=$SH_ROOT/$SH_INJECT_PATH/Injector.dylib
+SH_DYLIBS=$SH_DYLIBS":"$SH_ROOT/FLEXDylib/FLEXDylib.dylib
+
+if [ ! -z $1 ];then
+	if [ $1 == "1" ];then
+		make clean; make
+	fi
+fi
+
+echo $SH_DYLIBS
+
+xcrun simctl spawn booted launchctl debug system/com.apple.SpringBoard --environment DYLD_INSERT_LIBRARIES=$SH_DYLIBS
+xcrun simctl spawn booted launchctl stop com.apple.SpringBoard
